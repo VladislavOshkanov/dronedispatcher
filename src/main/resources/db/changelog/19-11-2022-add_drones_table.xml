@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="db.changelog-master.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="19-11-2022-add_drones_table" author="v.oshkanov">
+        <preConditions>
+            <not>
+                <tableExists tableName="drones"/>
+            </not>
+        </preConditions>
+
+        <sql>CREATE TYPE drone_model AS ENUM ('Lightweight','Middleweight', 'Cruiserweight', 'Heavyweight')</sql>
+        <sql>CREATE TYPE drone_state AS ENUM ('IDLE', 'LOADING', 'LOADED', 'DELIVERING', 'DELIVERED', 'RETURNING')</sql>
+
+        <createTable tableName="drones">
+            <column name="id" type="uuid">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="serial_number" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="model" type="drone_model">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="weight" type="integer">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="battery_capacity" type="integer">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="state" type="drone_state">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
