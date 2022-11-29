@@ -4,7 +4,6 @@ import com.oshkanov.drondispatcher.dao.CargoEntity;
 import com.oshkanov.drondispatcher.dto.CargoDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "spring")
 public interface CargoMapper {

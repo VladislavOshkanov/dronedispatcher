@@ -8,5 +8,7 @@ import org.mapstruct.Mapper;
 public interface DroneMapper {
     DroneDto toDto(DroneEntity entity);
 
+    Iterable<DroneDto> toDtoIterable(Iterable<DroneEntity> droneEntities);
+
     DroneEntity toEntity(DroneDto dto);
 }

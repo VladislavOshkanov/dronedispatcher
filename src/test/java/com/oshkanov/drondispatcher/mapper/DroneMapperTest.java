@@ -41,8 +41,8 @@ class DroneMapperTest {
         assertEquals(SERIAL_NUMBER, droneDto.getSerialNumber());
         assertEquals(BATTERY_CAPACITY, droneDto.getBatteryCapacity());
         assertEquals(WEIGHT, droneDto.getWeight());
-        assertEquals(DRONE_STATE_STRING, droneDto.getState());
-        assertEquals(DRONE_MODEL_STRING, droneDto.getModel());
+        assertEquals(DRONE_STATE, droneDto.getState());
+        assertEquals(DRONE_MODEL, droneDto.getModel());
 
     }
 
@@ -54,8 +54,8 @@ class DroneMapperTest {
         droneDto.setSerialNumber(SERIAL_NUMBER);
         droneDto.setBatteryCapacity(BATTERY_CAPACITY);
         droneDto.setWeight(WEIGHT);
-        droneDto.setState(DRONE_STATE_STRING);
-        droneDto.setModel(DRONE_MODEL_STRING);
+        droneDto.setState(DRONE_STATE);
+        droneDto.setModel(DRONE_MODEL);
 
         DroneEntity droneEntity = uut.toEntity(droneDto);
 
