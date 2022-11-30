@@ -1,9 +1,14 @@
 package com.oshkanov.drondispatcher.dao;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.oshkanov.drondispatcher.model.DroneModel;
@@ -22,11 +27,16 @@ public class DroneEntity {
 
     private String serialNumber;
 
+    @Enumerated(EnumType.STRING)
     private DroneModel model;
 
     private Integer weight;
 
     private Integer batteryCapacity;
 
+    @Enumerated(EnumType.STRING)
     private DroneState state;
+
+    @OneToMany
+    List<CargoEntity> cargo = new ArrayList<>();
 }

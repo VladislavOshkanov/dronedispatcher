@@ -15,4 +15,6 @@ public class CargoDto {
     private String code;
 
     private String fileName;
+
+    private DroneDto dronAssigned;
 }
